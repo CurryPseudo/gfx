@@ -937,9 +937,9 @@ impl Device {
         }
 
         if let Some(fun) = info.comparison {
-            if !caps.mutable_comparison_samplers {
-                return None;
-            }
+            //if !caps.mutable_comparison_samplers {
+            //    return None;
+            //}
             descriptor.set_compare_function(conv::map_compare_function(fun));
         }
         if [r, s, t].iter().any(|&am| am == image::WrapMode::Border) {
