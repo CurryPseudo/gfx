@@ -109,7 +109,7 @@ type FastHashMap<K, V> = HashMap<K, V, BuildHasherDefault<fxhash::FxHasher>>;
 type ResourceIndex = u32;
 
 // For CALayer contentsGravity
-#[link(name="QuartzCore", kind="framework")]
+#[link(name = "QuartzCore", kind = "framework")]
 extern "C" {
     #[allow(non_upper_case_globals)]
     static kCAGravityTopLeft: cocoa_foundation::base::id;
@@ -836,10 +836,11 @@ impl PrivateCapabilities {
             argument_buffers: experiments.argument_buffers
                 && Self::supports_any(&device, ARGUMENT_BUFFER_SUPPORT),
             shared_textures: !os_is_mac,
-            mutable_comparison_samplers: Self::supports_any(
-                &device,
-                MUTABLE_COMPARISON_SAMPLER_SUPPORT,
-            ),
+            mutable_comparison_samplers: true,
+            //Self::supports_any(
+            //    &device,
+            //    MUTABLE_COMPARISON_SAMPLER_SUPPORT,
+            //),
             sampler_clamp_to_border: Self::supports_any(&device, SAMPLER_CLAMP_TO_BORDER_SUPPORT),
             base_instance: Self::supports_any(&device, BASE_INSTANCE_SUPPORT),
             base_vertex_instance_drawing: Self::supports_any(&device, BASE_VERTEX_INSTANCE_SUPPORT),
